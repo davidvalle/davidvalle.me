@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="davidApp">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta name="author" content="David Valle">
+	<meta name="robots" content="index,follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="/" />
+
+	<meta property="og:title" content="David Valle" />
+	<meta property="og:site_name" content="David Valle" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://www.davidvalle.me" />
+	<meta property="og:description" content="My personal website" />
+	<meta property="og:image" content="http://www.davidvalle.me/img/logo.png" />
+
+	<title>David Valle</title>
+	<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
+
+	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic">
+	<!--<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+	<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
+	<script src="js/angular-pageslide-directive.js"></script>
+	<script src="js/app.js"></script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-76364052-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+
+<body ng-controller="mainController">
+
+<header>
+	<div class="headerTrans">
+		<section class="wrap flex-between">
+
+			<div id="logo"><img src="img/logo.png" alt="David Valle" width="260px" height="30px"></div>
+
+			<ul id="menu" class="no-mobile flex-center">
+				<li><a href="home"><i class="fa fa-3x fa-home"></i><div><span>Home</span></div></a></li>
+				<li><a href="projects"><i class="fa fa-3x fa-code"></i><div><span>Projects</span></div></a></li>
+				<li><a href="cv"><i class="fa fa-3x fa-user-secret"></i><div><span>CV</span></div></a></li>
+				<li><a href="contact"><i class="fa fa-3x fa-envelope"></i><div><span>Contact</span></div></a></li>
+			</ul>
+
+			<div class="mobile menuSlide" ng-controller="pageslideController">
+
+				<a id="menuButton" class="fa fa-2x fa-navicon" href="" ng-click="toggle()"></a>
+
+				<div pageslide
+					ps-open="checked"
+					ps-side="right"
+					pspush="true"
+					ps-speed="0.3"
+					ps-custom-height="165px"
+					ps-size="150px"
+					ps-custom-top="50px">
+					<ul>
+						<li><a href="home" ng-click="toggle()"><i class="fa fa-home"></i> Home</a></li>
+						<li><a href="projects" ng-click="toggle()"><i class="fa fa-code"></i> Projects</a></li>
+						<li><a href="cv" ng-click="toggle()"><i class="fa fa-user-secret"></i> CV</a></li>
+						<li><a href="contact" ng-click="toggle()"><i class="fa fa-envelope"></i> Contact</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</section>
+	</div>
+</header>
+
+<main ng-class="{blur: dvPublic}">
+	<section class="wrap" ng-view></section>
+</main>
+
+<footer>
+	<section class="wrap">
+		<div id="footer_info" class="flex-between">
+			<ul id="footerMenu" class="no-mobile flex-center">
+				<li><a href="home"><i class="fa fa-home"></i> Home</a></li>
+				<li><a href="projects"><i class="fa fa-code"></i> Projects</a></li>
+				<li><a href="cv"><i class="fa fa-user-secret"></i> CV</a></li>
+				<li><a href="contact"><i class="fa fa-envelope"></i> Contact</a></li>
+			</ul>
+			<div id="contact">
+				<ul class="fa-ul">
+					<li><i class="fa-li fa fa-envelope-o"></i><a href="mailto:me@davidvalle.me"><span class="e-mail" data-user="em" data-website="em.ellavdivad"></span></a></li>
+					<li><i class="fa-li fa fa-phone"></i>+34 625 044 032</li>
+					<li><i class="fa-li fa fa-skype fa-spin"></i>david__valle</li>
+					<li><i class="fa-li fa fa-linkedin"></i><a href="https://www.linkedin.com/in/valledavid" target="_blank">Link to my profile</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="license">© 2016 David Valle</div>
+	</section>
+</footer>
+
+<div id="overlay" ng-show="dvPublic">
+	<div id="overlay2">
+		<p><span>{</span> Re-writing <span>www.davidvalle.me</span> with cool stuff <span>}</span></p>
+		<img src="img/technologies.png" alt="Technologies">
+		<img id="arrow" src="img/arrow.png" alt="">
+	</div>
+</div>
+
+</body>
+</html>
